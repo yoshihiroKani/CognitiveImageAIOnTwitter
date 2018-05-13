@@ -14,10 +14,10 @@ ssl._create_default_https_context = ssl._create_unverified_context
 #ssl_ignore--<<
 
 #var_declaration_for_twitter_API-->>
-consumer_key = "VR7rHq6HW3h82E47Nfzrfi99B"
-consumer_secret = "9Zmo0ulD4yG2wDvotJzRyHTLU7LdDrPhzPb0Jbe7q12hSB6XqM"
-access_token = "912500759257681920-BQZAuEIGJ5m9S5zIZjqhm9BKM0uw1VP"
-access_secret = "vQl3YFnX1qfVRHZAU97UOAwV5MI93ItLXZhhIWqd6rnbC"
+consumer_key = "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+consumer_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+access_token = "XXXXXXXXXXXXXXXXXXXXXXXXXX"
+access_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXX"
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
@@ -30,8 +30,7 @@ f.close()
 image_url = ''
 headers = {
         'Content-Type': 'application/json',
-        #'Ocp-Apim-Subscription-Key': '86653236c2074ae69102585c18ac6471',
-        'Ocp-Apim-Subscription-Key': 'fdb4b205f267451bacfa090df9e590ae',
+        'Ocp-Apim-Subscription-Key': 'XXXXXXXXXXXXXXXXXXXXXXXXXX',
 }
 params = urllib.urlencode({
         'visualFeatures': 'Description',
@@ -40,7 +39,7 @@ params = urllib.urlencode({
 
 #google_cloud_translation_API-->>
 gct_head = 'https://www.googleapis.com/language/translate/v2?key='
-gct_key = 'AIzaSyDVaVRNUDp89ULHxKrO7ppRDDEaUE4zAy0'
+gct_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXX'
 gct_mid = '&target=ja&q='
 gct_url = gct_head + gct_key + gct_mid
 #google_cloud_translation_API--<<
