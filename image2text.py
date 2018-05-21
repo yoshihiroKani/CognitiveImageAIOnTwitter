@@ -61,12 +61,14 @@ except IndexError:
 for index in range(len(status)):
         body = ""
         try:
+                #リプライツイートの画像の有無を確認
                 image_url = status[index]._json['entities']['media'][0]['media_url']
                 print('img_url' + str(index) + ' >> ' + image_url)
                 body = """{'url': '%s'}""" % (image_url)
         except KeyError:
                 print("microsoft computer vision api KeyError")
                 continue
+        #リプライの送信元ユーザのユーザー名を格納
         scrn_name = status[index]._json[u'user'][u'screen_name']
         conn.request("POST", "/vision/v1.0/analyze?%s" % params, body, headers)
         cv_res = conn.getresponse()
@@ -81,6 +83,7 @@ for index in range(len(status)):
         gct_res = requests.post(gct_req_url)
         print(gct_req_url)
         gct_res_txt = gct_res.json()[u'data'][u'translations'][0][u'translatedText']
+        #リプライの返信先を指定
         rep_txt = '@' + scrn_name + ' ' + gct_res_txt
         rep_id = status[index]._json['id_str']
         api.update_status(status=rep_txt, in_reply_to_status_id=rep_id)
